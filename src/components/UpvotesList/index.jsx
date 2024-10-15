@@ -12,7 +12,7 @@ export default function UpvotesList() {
         upvoteList.push(<Upvote key={i} selected={isSelected} onSelectionToggle={setIsSelected} />);
     }
 
-    return <div>this is upvoteslist
+    return <div>
         {upvoteList}
         <button onClick={() => setUpvotesCount(prevCount => prevCount + 1)}><Plus /></button>
     </div>
