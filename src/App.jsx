@@ -5,7 +5,6 @@ import './App.css'
 import UpvotesList from "~/components/UpvotesList/index.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
