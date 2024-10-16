@@ -4,7 +4,7 @@ import {DEFAULT_ARROW_COLOR, DEFAULT_BG_COLOR, SELECTED_BG_COLOR, SELECTED_ARROW
 
 export default function Upvote({selected, onSelectionToggle}) {
     return (
-        <button className={'upvote'} onClick={() => onSelectionToggle(!selected)}
+        <button className={'upvote'} onClick={() => onSelectionToggle()}
              style={{backgroundColor: selected ? SELECTED_BG_COLOR : DEFAULT_BG_COLOR}}>
             <ArrowUp fill={selected ? SELECTED_ARROW_COLOR : DEFAULT_ARROW_COLOR}/>
         </button>

@@ -28,7 +28,7 @@ const UpvoteProvider = ({ children }) => {
     };
 
     return (
-        <UpvoteContext.Provider value={{ data, incrementUpvoteCount, saveData }}>
+        <UpvoteContext.Provider value={{ data, incrementUpvoteCount, toggleSelected, saveData }}>
             {children}
         </UpvoteContext.Provider>
     );
