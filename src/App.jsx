@@ -6,11 +6,12 @@ import { useContext } from "react";
 function App() {
  const { data: { upvoteLists }} = useContext(UpvoteContext);
   return (
-    <>
-        {upvoteLists.map( (upvoteList) => {
-            return <UpvotesList key={upvoteList.id} id={upvoteList.id}/>
-        })}
-    </>
+      <>
+          {upvoteLists.map((upvoteList) => {
+              return <UpvotesList key={upvoteList.id} id={upvoteList.id}/>
+          })}
+
+      </>
   )
 }
 

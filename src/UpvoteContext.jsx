@@ -6,19 +6,33 @@ const initialState = {
 
 
 
-const UpvoteContext = createContext({  });
+const UpvoteContext = createContext({});
 
 
 
 const UpvoteProvider = ({ children }) => {
     const [data, saveData] = useLocalStorage("upvote-app", initialState);
-    const toggleSelected = (id) => {};
-    const incrementUpvoteCount = (id) => {
-        const nextUpvoteList = data.upvoteLists.map((upvoteList) => {})
+    const toggleSelected = (upvoteListId) => {
+        const nextUpvoteLists = data.upvoteLists.map((upvoteList) => {
+            if (upvoteList.id === upvoteListId) {
+                return { ...upvoteList, selected: !upvoteList.selected };
+            }
+            return upvoteList;
+        });
+        saveData({ ...data, upvoteLists: nextUpvoteLists });
+    };
+    const incrementUpvoteCount = (upvoteListId) => {
+        const nextUpvoteLists = data.upvoteLists.map((upvoteList) => {
+            if (upvoteList.id === upvoteListId) {
+                return { ...upvoteList, upvotesCount: upvoteList.upvotesCount + 1 };
+            }
+            return upvoteList;
+        });
+        saveData({ ...data, upvoteLists: nextUpvoteLists });
     };
 
     return (
-        <UpvoteContext.Provider value={{ data, saveData }}>
+        <UpvoteContext.Provider value={{ data, incrementUpvoteCount, saveData }}>
             {children}
         </UpvoteContext.Provider>
     );
