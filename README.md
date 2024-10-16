@@ -10,3 +10,4 @@
 
 `npm run preview --host`
 
+Three empty UpvoteList components have been initialized in the app for testing. There is also a button to clear the Session Storage if needed.
