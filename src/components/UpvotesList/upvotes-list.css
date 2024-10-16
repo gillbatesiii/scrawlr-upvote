@@ -1,0 +1,17 @@
+.upvote-button-container {
+    display: inline-block;
+    border: 1px rgb(220 223 227) solid;
+    border-radius: 8px;
+    margin-right: 1em;
+
+}
+.upvotes-list-container {
+    margin-bottom: 10px;
+
+    button {
+        border-radius: 8px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        padding: 0.6em 0.7em;
+    }
+}
