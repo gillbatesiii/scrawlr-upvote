@@ -6,4 +6,10 @@ import svgr from 'vite-plugin-svgr';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [svgr(), react(), tsconfigPaths()],
+  test: {
+    // 👋 add the line below to add jsdom to vite
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: './src/tests/setup.js',
+  }
 })
