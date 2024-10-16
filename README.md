@@ -2,7 +2,7 @@
 
 ## Setup
 - Create a Codespace in Github
-- Run the following:
+- Run the following commands in the Codespace terminal:
 
 `npm install`
 
