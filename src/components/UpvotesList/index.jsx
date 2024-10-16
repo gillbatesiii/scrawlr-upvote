@@ -26,7 +26,13 @@ export default function UpvotesList({ id }) {
 
     return (
         <div className={'upvotes-list-container'}>
-            <div className={upvoteComponentsList.length > 0 ? 'upvote-button-container' : null}>
+            <div
+                className={
+                    upvoteComponentsList.length > 0
+                        ? 'upvote-button-container'
+                        : null
+                }
+            >
                 {upvoteComponentsList}
             </div>
             <button onClick={() => incrementUpvoteCount(id)}>
