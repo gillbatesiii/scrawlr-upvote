@@ -1,27 +1,31 @@
 import { createContext } from 'react';
 import { useSessionStorage } from '@uidotdev/usehooks';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+
 const initialState = {
-    upvoteLists: [{
-        id: 1,
-        upvotesCount: 0,
-        selected: false,
-    }, {
-        id: 2,
-        upvotesCount: 0,
-        selected: false,
-    }, {
-        id: 3,
-        upvotesCount: 0,
-        selected: false,
-    }],
+    upvoteLists: [
+        {
+            id: 1,
+            upvotesCount: 0,
+            selected: false,
+        },
+        {
+            id: 2,
+            upvotesCount: 0,
+            selected: false,
+        },
+        {
+            id: 3,
+            upvotesCount: 0,
+            selected: false,
+        },
+    ],
 };
 
 const UpvoteContext = createContext({});
 
-
 const UpvoteProvider = ({ children }) => {
-    const [data, saveData] = useSessionStorage("upvote-app", initialState);
+    const [data, saveData] = useSessionStorage('upvote-app', initialState);
     const toggleSelected = (upvoteListId) => {
         const nextUpvoteLists = data.upvoteLists.map((upvoteList) => {
             if (upvoteList.id === upvoteListId) {
@@ -34,7 +38,10 @@ const UpvoteProvider = ({ children }) => {
     const incrementUpvoteCount = (upvoteListId) => {
         const nextUpvoteLists = data.upvoteLists.map((upvoteList) => {
             if (upvoteList.id === upvoteListId) {
-                return { ...upvoteList, upvotesCount: upvoteList.upvotesCount + 1 };
+                return {
+                    ...upvoteList,
+                    upvotesCount: upvoteList.upvotesCount + 1,
+                };
             }
             return upvoteList;
         });
@@ -42,7 +49,9 @@ const UpvoteProvider = ({ children }) => {
     };
 
     return (
-        <UpvoteContext.Provider value={{ data, incrementUpvoteCount, toggleSelected, saveData }}>
+        <UpvoteContext.Provider
+            value={{ data, incrementUpvoteCount, toggleSelected, saveData }}
+        >
             {children}
         </UpvoteContext.Provider>
     );
