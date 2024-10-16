@@ -1,14 +1,10 @@
-import { createContext, useReducer } from 'react';
+import { createContext } from 'react';
 import { useLocalStorage } from '@uidotdev/usehooks';
 const initialState = {
     upvoteLists: [{id: 1, upvotesCount: 0}, {id: 2, upvotesCount: 0}, {id: 3, upvotesCount: 0}],
 };
 
-
-
 const UpvoteContext = createContext({});
-
-
 
 const UpvoteProvider = ({ children }) => {
     const [data, saveData] = useLocalStorage("upvote-app", initialState);
