@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { useLocalStorage } from '@uidotdev/usehooks';
+import { useSessionStorage } from '@uidotdev/usehooks';
 const initialState = {
     upvoteLists: [{id: 1, upvotesCount: 0}, {id: 2, upvotesCount: 0}, {id: 3, upvotesCount: 0}],
 };
@@ -7,7 +7,7 @@ const initialState = {
 const UpvoteContext = createContext({});
 
 const UpvoteProvider = ({ children }) => {
-    const [data, saveData] = useLocalStorage("upvote-app", initialState);
+    const [data, saveData] = useSessionStorage("upvote-app", initialState);
     const toggleSelected = (upvoteListId) => {
         const nextUpvoteLists = data.upvoteLists.map((upvoteList) => {
             if (upvoteList.id === upvoteListId) {
