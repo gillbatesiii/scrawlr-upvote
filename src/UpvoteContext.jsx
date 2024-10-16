@@ -1,10 +1,24 @@
 import { createContext } from 'react';
 import { useSessionStorage } from '@uidotdev/usehooks';
+import PropTypes from "prop-types";
 const initialState = {
-    upvoteLists: [{id: 1, upvotesCount: 0}, {id: 2, upvotesCount: 0}, {id: 3, upvotesCount: 0}],
+    upvoteLists: [{
+        id: 1,
+        upvotesCount: 0,
+        selected: false,
+    }, {
+        id: 2,
+        upvotesCount: 0,
+        selected: false,
+    }, {
+        id: 3,
+        upvotesCount: 0,
+        selected: false,
+    }],
 };
 
 const UpvoteContext = createContext({});
+
 
 const UpvoteProvider = ({ children }) => {
     const [data, saveData] = useSessionStorage("upvote-app", initialState);
@@ -34,4 +48,7 @@ const UpvoteProvider = ({ children }) => {
     );
 };
 
+UpvoteProvider.propTypes = {
+    children: PropTypes.node.isRequired,
+};
 export { UpvoteProvider, UpvoteContext };
