@@ -9,6 +9,7 @@
     margin-bottom: 10px;
 
     button {
+        background-color: #F4F6F8;
         border-radius: 8px;
         border: 1px solid transparent;
         cursor: pointer;
