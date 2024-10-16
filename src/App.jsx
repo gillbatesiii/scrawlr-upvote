@@ -1,16 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import UpvotesList from "~/components/UpvotesList/index.jsx";
+import { UpvoteContext } from "~/UpvoteContext.jsx";
+import { useContext } from "react";
 
 function App() {
-
+ const { data: { upvoteLists }} = useContext(UpvoteContext);
   return (
     <>
-        <UpvotesList />
-        <UpvotesList />
-        <UpvotesList />
+        {upvoteLists.map( (upvoteList) => {
+            return <UpvotesList key={upvoteList.id} id={upvoteList.id}/>
+        })}
     </>
   )
 }
