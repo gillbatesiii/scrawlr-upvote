@@ -10,7 +10,14 @@ function App() {
           {upvoteLists.map((upvoteList) => {
               return <UpvotesList key={upvoteList.id} id={upvoteList.id}/>
           })}
-
+          <button
+              onClick={() => {
+                  window.sessionStorage.clear();
+                  window.location.reload();
+              }}
+          >
+              Clear Session
+          </button>
       </>
   )
 }
